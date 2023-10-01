@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <link rel="stylesheet" href="style.css">
+<head>
+    <title>AZAL</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+        }
+        .container {
+            max-width: 400px;
+            margin: 0 auto;
+            text-align: center;
+            padding: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Elşad İldarov işdədi ya evdə?</h1>
+        <label for="date">İstədiyin tarixi seç:</label>
+        <input type="date" id="date">
+        <button onclick="checkSchedule()">Yoxla</button>
+        <p id="output"></p>
+    </div>
+
+    <script>
+        function checkSchedule() {
+            const inputDate = new Date(document.getElementById("date").value);
+            const currentDate = new Date('September 30,2023');
+            const daysDifference = Math.floor((inputDate - currentDate) / (1000 * 60 * 60 * 24));
+
+        
+
+
+
+            if (daysDifference % 4 === 0) {
+                document.getElementById("output").textContent = "perviy smen";
+            } else if (daysDifference % 4 === 1) {
+                document.getElementById("output").textContent = "vtoroy smen";
+            } else if (daysDifference % 4 === 2) {
+                document.getElementById("output").textContent = "ilk ev gunu\n(s) ";
+            } else if (daysDifference % 4 === 3) {
+                document.getElementById("output").textContent = "ikinci ev gunu";
+            }
+        }
+    </script>
+</body>
+</html>
