@@ -19,10 +19,16 @@
     <div class="container">
         <h1>Elşad İldarov işdədi ya evdə?</h1>
         <label for="date">İstədiyin tarixi seç:</label>
-        <input type="date" id="date">
+        <input type="date" id="date" placeholder="ay/gnn/il">
         <button onclick="checkSchedule()">Yoxla</button>
-        <p id="output"></p>
+        <p id="output" style="font-weight: bold; color:turquoise;"></p>
+        <h5 id="alert"></h5>
     </div>
+
+
+
+
+    
 
     <script>
         function checkSchedule() {
@@ -30,19 +36,22 @@
             const currentDate = new Date('September 30,2023');
             const daysDifference = Math.floor((inputDate - currentDate) / (1000 * 60 * 60 * 24));
 
-        
 
-
+            
 
             if (daysDifference % 4 === 0) {
-                document.getElementById("output").textContent = "perviy smen";
+                document.getElementById("output").textContent = "Perviy smen";
             } else if (daysDifference % 4 === 1) {
-                document.getElementById("output").textContent = "vtoroy smen";
+                document.getElementById("output").textContent = "Vtoroy smen";
             } else if (daysDifference % 4 === 2) {
-                document.getElementById("output").textContent = "ilk ev gunu\n(s) ";
+                document.getElementById("output").textContent = "İlk ev günü (səhər işdən gəlib) ";
             } else if (daysDifference % 4 === 3) {
-                document.getElementById("output").textContent = "ikinci ev gunu";
+                document.getElementById("output").textContent = "İkinci ev günü";
             }
+
+            let str = "'Yoxla' düyməsini sıxmağı unutma"
+            document.getElementById("alert").textContent = str;
+
         }
     </script>
 </body>
